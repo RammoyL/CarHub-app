@@ -19,12 +19,14 @@ export const calculateCarRent = (city_mpg: number, year:
 };
 
 export async function fetchCars(filters: FilterProps) {
+    const { manufacturer, year, model, limit, fuel } = filters;
     const headers = {
             'X-RapidAPI-Key': '34c4c1da45msh591f22ad8c0b5f4p187a61jsnb8f90accd9a4',
             'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
-        }
-const response = await fetch ('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla', 
-{
+    }
+    //search paramters converted to template string. Allowing paramaters to be passed to it
+    const response = await fetch(`https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?
+    maker=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`, {
     headers: headers,
 });
 

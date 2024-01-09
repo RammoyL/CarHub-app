@@ -38,3 +38,14 @@ export interface FilterProps {
     limit: number;
     model: string;
 }
+
+//values provdied for output type optionprops
+export interface OptionProps {
+    title: string;
+    value: string;
+}
+
+export interface CustomFilterProps { //creats options interface for fuel and and year in an array optionsprops
+    title: string;
+    options: OptionProps[];
+}
